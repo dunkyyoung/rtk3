@@ -1,0 +1,29 @@
+/* Стили для компонента карточки */
+card-component {
+    display: block;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+card-component .card-header {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+card-component .card-content {
+    font-size: 1em;
+    color: #555;
+}
+
+card-component img {
+    max-width: 100%;
+    margin-top: 15px;
+    border-radius: 4px;
+}
