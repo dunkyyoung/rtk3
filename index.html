@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Карточки с контентом</title>
     <link rel="stylesheet" href="card-component.css">
-    <script src="card-component.js" defer></script>
 </head>
 <body>
-    <h1>Карточки с контентом</h1>
+    <h1>Мои карточки</h1>
 
     <card-component>
         <template slot="header">
@@ -25,9 +24,21 @@
         </template>
         <template slot="content">
             <p>Текстовое содержание карточки 2</p>
-            <img src="image.jpg" alt="Изображение карточки 2">
+            <img src="https://via.placeholder.com/300" alt="Изображение карточки 2">
         </template>
     </card-component>
 
+    <card-component>
+        <template slot="header">
+            <h2>Заголовок карточки 3</h2>
+        </template>
+        <template slot="content">
+            <p>Текстовое содержание карточки 3</p>
+            <img src="https://via.placeholder.com/300" alt="Изображение карточки 3">
+            <p>Дополнительный текст внутри карточки 3.</p>
+        </template>
+    </card-component>
+
+    <script src="card-component.js"></script>
 </body>
 </html>
