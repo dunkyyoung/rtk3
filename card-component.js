@@ -1,37 +1,68 @@
 class CardComponent extends HTMLElement {
     constructor() {
         super();
-        // Создание Shadow DOM
-        this.attachShadow({ mode: 'open' });
+        this.attachShadow({ mode: 'open' }); // Используем Shadow DOM
     }
 
     connectedCallback() {
-        // Определяем шаблон для карточки
-        const template = document.createElement('template');
-        template.innerHTML = `
+        this.render();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
             <style>
-                .card-header {
-                    font-size: 1.5em;
-                    margin-bottom: 15px;
-                    color: #333;
-                }
-                .card-content {
-                    font-size: 1em;
-                    color: #555;
-                }
+                ${this.getStyles()}
             </style>
             <div class="card">
-                <div class="card-header">
-                    <slot name="header"></slot>
-                </div>
-                <div class="card-content">
-                    <slot name="content"></slot>
+                <header>
+                    <slot name="header">Заголовок по умолчанию</slot>
+                </header>
+                <div class="content">
+                    <slot name="content">Содержание по умолчанию</slot>
                 </div>
             </div>
         `;
+    }
 
-        // Вставляем содержимое в Shadow DOM
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+    getStyles() {
+        return `
+            /* Стили для карточки */
+            .card {
+                display: block;
+                max-width: 350px;
+                margin: 20px;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            header {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .content {
+                font-size: 1em;
+                color: #555;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                margin-top: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+        `;
     }
 }
 
